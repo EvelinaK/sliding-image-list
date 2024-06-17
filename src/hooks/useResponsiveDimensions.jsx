@@ -27,10 +27,10 @@ const useResponsiveDimensions = (containerRef, config) => {
     return closestBreakpoint;
   };
 
-  // useLayoutEffect(() => {
-  //   containerRef.current &&
-  //     setDimensions(containerRef.current.getBoundingClientRect());
-  // }, []);
+  useLayoutEffect(() => {
+    containerRef.current &&
+      setDimensions(containerRef.current.getBoundingClientRect());
+  }, []);
 
   useLayoutEffect(() => {
     const observeTarget = containerRef.current;

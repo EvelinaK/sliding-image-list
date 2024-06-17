@@ -42,12 +42,12 @@ const useSlidingWindowScroll = (
     (entries) => {
       entries.forEach((entry) => {
         const { start, end } = range;
-        const thresHoldOffset = Math.round(_THRESHOLD / 3);
 
         if (entry.isIntersecting && entry.target.id === "bottom") {
           const maxStartIndex = Math.max(list.length - _THRESHOLD, 0);
           const maxEndIndex = list.length - 1;
 
+          const thresHoldOffset = Math.round(_THRESHOLD / 3);
           const newEnd = Math.min(
             end + _THRESHOLD - thresHoldOffset,
             maxEndIndex
@@ -68,12 +68,8 @@ const useSlidingWindowScroll = (
         }
 
         if (entry.isIntersecting && entry.target.id === "top") {
-          const newStart = Math.max(start - _THRESHOLD + thresHoldOffset, 0);
-
-          const newEnd = Math.max(
-            end - _THRESHOLD + thresHoldOffset,
-            _THRESHOLD - 1
-          );
+          const newStart = Math.max(start - 10, 0);
+          const newEnd = Math.max(end - _THRESHOLD - 1, _THRESHOLD - 1);
 
           updateState(newStart, newEnd);
         }
