@@ -27,10 +27,10 @@ const useResponsiveDimensions = (containerRef, config) => {
     return closestBreakpoint;
   };
 
-  useLayoutEffect(() => {
-    containerRef.current &&
-      setDimensions(containerRef.current.getBoundingClientRect());
-  }, []);
+  // useLayoutEffect(() => {
+  //   containerRef.current &&
+  //     setDimensions(containerRef.current.getBoundingClientRect());
+  // }, []);
 
   useLayoutEffect(() => {
     const observeTarget = containerRef.current;
@@ -60,13 +60,7 @@ const useResponsiveDimensions = (containerRef, config) => {
     return () => {
       resizeObserver.unobserve(observeTarget);
     };
-  }, [
-    containerRef,
-    slidesToShow,
-    config.slidesToShow,
-    setDimensions,
-    breakpoints,
-  ]);
+  }, [containerRef, slidesToShow, setDimensions, breakpoints]);
 
   return { dimensions };
 };

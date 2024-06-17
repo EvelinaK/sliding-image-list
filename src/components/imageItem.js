@@ -33,7 +33,8 @@ export default function ImageItem({
         alt={item?.alt_description}
         loading={"lazy"}
       />
-      {item.value}
+
+      {item.index}
     </li>
   );
 }
