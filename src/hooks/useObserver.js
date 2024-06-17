@@ -67,9 +67,11 @@ const useSlidingWindowScroll = (
         }
 
         if (entry.isIntersecting && entry.target.id === "top") {
-          const newStart = Math.max(start - thresHoldOffset, 0);
-          const newEnd = Math.max(end - _THRESHOLD - 1, _THRESHOLD - 1);
-
+          const newStart = Math.max(start - _THRESHOLD + thresHoldOffset, 0);
+          const newEnd = Math.max(
+            end - _THRESHOLD + thresHoldOffset,
+            _THRESHOLD - 1
+          );
           updateState(newStart, newEnd);
         }
       });
